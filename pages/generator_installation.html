@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Generators | Professional Generator Services</title>
+  
+  <!-- Lato Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+   
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!--Custom CSS-->
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/src/hero.css">
+  
+</head>
+
+<header>
+    <!-- Navbar -->
+<nav class="navbar fixed w-full z-30 top-0 py-2 glass-effect" id="navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="/index.html">
+        <img src="/logo_fullColor.png" alt="logo" height="auto" width="300px">
+    </a>
+      </div>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="/index.html" class="text-primary-blue hover:text-secondary-blue font-medium transition duration-300">Home</a>
+        
+        <div class="dropdown" id="services-dropdown">
+          <a href="/pages/services.html" class="text-primary-blue hover:text-secondary-blue font-medium transition duration-300 flex items-center" id="services-toggle">
+            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="dropdown-content mt-2" id="services-menu">
+            <div class="p-3 border-b border-gray-200">
+              <h3 class="font-bold text-sm text-gray-500">GENERATOR SERVICES</h3>
+            </div>
+            <a href="/pages/generator_installation.html">Generator Installation</a>
+            <a href="/pages/generator_repairs.html">Generator Repair</a>
+            <a href="/pages/other_generator_services.html">Other Generator Services</a>
+            <div class="p-3 border-b border-gray-200">
+              <h3 class="font-bold text-sm text-gray-500">ADDITIONAL SERVICES</h3>
+            </div>
+            <a href="/pages/solar_installations.html">Solar System Installations</a>
+            <a href="/pages/electrical_services.html">Electrical Services</a>
+          </div>
+        </div>
+        
+        <a href="/pages/contact.html" class="text-primary-blue hover:text-secondary-blue font-medium transition duration-300">Contact Us</a>
+        
+        <a href="https://wa.me/27848502120" target="_blank" class="btn-whatsapp py-2 px-4 rounded-full flex items-center pulse">
+          <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <div class="lg:hidden">
+        <button id="menu-toggle" class="text-primary-blue focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu lg:hidden" id="mobile-menu">
+    <div class="container mx-auto px-4 py-20">
+      <div class="flex justify-end mb-8">
+        <button id="close-menu" class="text-primary-blue focus:outline-none">
+          <i class="fas fa-times text-3xl"></i>
+        </button>
+      </div>
+      
+      <div class="flex flex-col space-y-6">
+        <a href="#" class="text-primary-blue text-xl font-medium py-2 border-b border-gray-200">Home</a>
+        
+        <div class="mobile-dropdown">
+          <div class="flex justify-between items-center text-primary-blue text-xl font-medium py-2 border-b border-gray-200" id="mobile-services-toggle">
+            <p>Services</p>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="mobile-dropdown-content pl-4 space-y-4 hidden mt-4">
+            <p class="text-gray-500 font-bold">GENERATOR SERVICES</p>
+            <a href="/pages/generator_installation.html" class="block text-primary-blue hover:text-secondary-blue">Generator Installation</a>
+            <a href="/pages/generator_repairs.html" class="block text-primary-blue hover:text-secondary-blue">Generator Repair</a>
+            <a href="/pages/other_generator_services.html" class="block text-primary-blue hover:text-secondary-blue">Other Generator Services</a>
+            
+            <p class="text-gray-500 font-bold mt-6">ADDITIONAL SERVICES</p>
+            <a href="/pages/solar_installations.html" class="block text-primary-blue hover:text-secondary-blue">Solar System Installations</a>
+            <a href="/pages/electrical_services.html" class="block text-primary-blue hover:text-secondary-blue">Electrical Services</a>
+          </div>
+        </div>
+        
+        <a href="/pages/contact.html" class="text-primary-blue text-xl font-medium py-2 border-b border-gray-200">Contact Us</a>
+        
+        <a href="https://wa.me/27848502120" target="_blank" class="btn-whatsapp py-3 px-6 rounded-full text-center">
+          <i class="fab fa-whatsapp mr-2"></i> WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<body>
+ <!-- Hero Section Container -->
+ <section id="hero" class="w-full h-screen flex items-center justify-center relative">
+    <!-- Background Image Container -->
+    <div class="hero-bg-container">
+      <img id="hero-background" class="hero-bg" src="/assets/images/generaorInstallationHero.png" alt="Hero Background">
+    </div>
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/60 z-10"></div>
+    
+    <!-- Content Container -->
+    <div class="container mx-auto px-4 z-20 max-w-6xl mt-20 md:mt-60">
+      <div class="flex flex-col items-center text-center lg:text-left lg:items-start">
+        <!-- Hero Content -->
+        <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight text-shadow opacity-0">
+            Power Outages Got You Down? <br> Get Installed, Fast.
+        </h1>
+        
+        <p id="hero-description" class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl opacity-0">
+            Don't wait until the next storm hits. Schedule your generator installation now and enjoy reliable power. Our expert team ensures quick, hassle-free setup. Limited slots available!
+        </p>
+        
+        <!-- CTA Button -->
+        <div id="hero-cta" class="opacity-0">
+          <a href="/pages/contact.html" class="btn-shine inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            Schedule Installation Today!
+          </a>
+        </div>
+        
+        <!-- Floating Elements for Visual Interest -->
+        <div class="absolute right-0 bottom-0 opacity-20 pointer-events-none">
+          <div class="floating">
+            <svg width="300" height="300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="40" stroke="white" stroke-width="1" />
+              <circle cx="50" cy="50" r="30" stroke="white" stroke-width="1" />
+              <circle cx="50" cy="50" r="20" stroke="white" stroke-width="1" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Animated Gradient Accent -->
+    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+  </section>
+  <section class="bg-gradient-to-r from-blue-500 to-blue-700 py-20">
+    <div class="container mx-auto px-4">
+  <!-- Generator Installation Services -->
+  <div id="installation" class="mb-20">
+    <h3 class="text-2xl font-bold text-white uppercase mb-10 text-center" data-aos="fade-up">Generator Installation Services</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Service Cards -->
+      <div class="service-card glass-effect p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-icon">
+          <i class="fas fa-search fa-2x"></i>
+        </div>
+        <h4 class="text-xl font-bold text-primary-blue mb-3">Site Assessment</h4>
+        <p class="text-gray-600">Professional evaluation of your location to determine the optimal generator placement and requirements.</p>
+      </div>
+      
+      <div class="service-card glass-effect p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-icon">
+          <i class="fas fa-ruler-combined fa-2x"></i>
+        </div>
+        <h4 class="text-xl font-bold text-primary-blue mb-3">Generator Sizing</h4>
+        <p class="text-gray-600">Expert calculation of the right generator capacity based on your specific power needs.</p>
+      </div>
+      
+      <div class="service-card glass-effect p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-icon">
+          <i class="fas fa-hammer fa-2x"></i>
+        </div>
+        <h4 class="text-xl font-bold text-primary-blue mb-3">Foundation Preparation</h4>
+        <p class="text-gray-600">Construction of proper foundations to ensure stability and vibration control for your generator.</p>
+      </div>
+      
+      <div class="service-card glass-effect p-6 rounded-xl" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-icon">
+          <i class="fas fa-plug fa-2x"></i>
+        </div>
+        <h4 class="text-xl font-bold text-primary-blue mb-3">Electrical Wiring</h4>
+        <p class="text-gray-600">Professional electrical connections that comply with all safety standards and local regulations.</p>
+      </div>
+      
+      <div class="service-card glass-effect p-6 rounded-xl" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-icon">
+          <i class="fas fa-gas-pump fa-2x"></i>
+        </div>
+        <h4 class="text-xl font-bold text-primary-blue mb-3">Fuel System Installation</h4>
+        <p class="text-gray-600">Safe and efficient fuel system setup for your generator's consistent performance.</p>
+      </div>
+      
+      <div class="service-card glass-effect p-6 rounded-xl" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-icon">
+          <i class="fas fa-cog fa-2x"></i>
+        </div>
+        <h4 class="text-xl font-bold text-primary-blue mb-3">Startup and Testing</h4>
+        <p class="text-gray-600">Comprehensive testing procedures to ensure your generator functions properly under all conditions.</p>
+      </div>
+    </div>
+  </div>
+    </div>
+</section>
+
+</body>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-8 md:mb-0">
+          <a href="/index.html" class="flex items-center">
+         <img src="/logo_defaultWhite.png" alt="Dynamic Generators" width="400px" height="auto">
+          </a>
+        </div>
+        
+        <div class="flex flex-col mb-8 md:mb-0">
+          <h4 class="font-bold mb-4 text-xl">Quick Links</h4>
+          <div class="flex flex-col space-y-2">
+            <a href="/index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a>
+            <a href="/pages/services.html" class="text-gray-400 hover:text-white transition duration-300">Services</a>
+            <a href="/pages/contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
+          </div>
+        </div>
+        
+        <div class="flex flex-col">
+          <h4 class="font-bold mb-4 text-xl">Connect With Us</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-400">
+          &copy; 2025 Dynamic Generators. All rights reserved.
+        </p>
+        <p class="text-gray-500 mt-2">
+          Designed and developed by: <a href="http://www.claudius-mainja.com" target="_blank" class="text-secondary-blue hover:underline">claudiusMainja</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary-blue text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50 transition-opacity duration-300 opacity-0 invisible">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+// Initialize AOS Animation if it exists
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
+}
+
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenu = document.getElementById('close-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (menuToggle && closeMenu && mobileMenu) {
+  menuToggle.addEventListener('click', function() {
+    mobileMenu.classList.add('active');
+  });
+  
+  closeMenu.addEventListener('click', function() {
+    mobileMenu.classList.remove('active');
+  });
+  
+  // Close mobile menu when clicking on a link
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      mobileMenu.classList.remove('active');
+    });
+  });
+}
+
+// Navbar Scroll Effect
+const navbar = document.getElementById('navbar');
+if (navbar) {
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+}
+
+// Services Dropdown for Desktop - Click instead of Hover
+const servicesToggle = document.getElementById('services-toggle');
+const servicesMenu = document.getElementById('services-menu');
+const servicesDropdown = document.getElementById('services-dropdown');
+
+if (servicesToggle && servicesMenu) {
+  // Handle click toggling
+  servicesToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    servicesMenu.classList.toggle('show');
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!servicesDropdown.contains(e.target)) {
+      servicesMenu.classList.remove('show');
+    }
+  });
+  
+  // For accessibility: handle keyboard navigation
+  servicesToggle.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      servicesMenu.classList.toggle('show');
+    }
+  });
+}
+
+// Mobile Services Dropdown Toggle
+const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+if (mobileServicesToggle) {
+  mobileServicesToggle.addEventListener('click', function() {
+    const dropdownContent = this.nextElementSibling;
+    dropdownContent.classList.toggle('hidden');
+    
+    // Toggle chevron direction
+    const icon = this.querySelector('i');
+    if (icon) {
+      icon.classList.toggle('fa-chevron-down');
+      icon.classList.toggle('fa-chevron-up');
+    }
+  });
+}
+
+// Handle window resize 
+window.addEventListener('resize', function() {
+  if (window.innerWidth >= 1024) {
+    // Reset mobile menu when resizing to desktop
+    if (mobileMenu) {
+      mobileMenu.classList.remove('active');
+    }
+  }
+});
+});
+      // Back to Top Button
+      const backToTopButton = document.getElementById('back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.remove('opacity-0', 'invisible');
+          backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+          backToTopButton.classList.remove('opacity-100', 'visible');
+          backToTopButton.classList.add('opacity-0', 'invisible');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+
+  </script>
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

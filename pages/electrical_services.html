@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Generators | Professional Generator Services</title>
+  
+  <!-- Lato Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+   
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+
+  <!--Custom CSS-->
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/src/hero.css">
+  <link rel="stylesheet" href="/src/electricalServices.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#214BA9',
+            secondary: '#4775DB',
+            'accent-green': '#4CAF50',
+            'accent-orange': '#FF9800',
+          },
+          fontFamily: {
+            lato: ['Lato', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  
+</head>
+
+<header>
+    <!-- Navbar -->
+<nav class="navbar fixed w-full z-30 top-0 py-2 glass-effect" id="navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="/index.html">
+        <img src="/logo_fullColor.png" alt="logo" height="auto" width="300px">
+    </a>
+      </div>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="/index.html" class="text-primary-blue hover:text-secondary-blue font-medium transition duration-300">Home</a>
+        
+        <div class="dropdown" id="services-dropdown">
+          <a href="/pages/services.html" class="text-primary-blue hover:text-secondary-blue font-medium transition duration-300 flex items-center" id="services-toggle">
+            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="dropdown-content mt-2" id="services-menu">
+            <div class="p-3 border-b border-gray-200">
+              <h3 class="font-bold text-sm text-gray-500">GENERATOR SERVICES</h3>
+            </div>
+            <a href="/pages/generator_installation.html">Generator Installation</a>
+            <a href="/pages/generator_repairs.html">Generator Repair</a>
+            <a href="/pages/other_generator_services.html">Other Generator Services</a>
+            <div class="p-3 border-b border-gray-200">
+              <h3 class="font-bold text-sm text-gray-500">ADDITIONAL SERVICES</h3>
+            </div>
+            <a href="/pages/solar_installations.html">Solar System Installations</a>
+            <a href="/pages/electrical_services.html">Electrical Services</a>
+          </div>
+        </div>
+        
+        <a href="/pages/contact.html" class="text-primary-blue hover:text-secondary-blue font-medium transition duration-300">Contact Us</a>
+        
+        <a href="https://wa.me/27848502120" target="_blank" class="btn-whatsapp py-2 px-4 rounded-full flex items-center pulse">
+          <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <div class="lg:hidden">
+        <button id="menu-toggle" class="text-primary-blue focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu lg:hidden" id="mobile-menu">
+    <div class="container mx-auto px-4 py-20">
+      <div class="flex justify-end mb-8">
+        <button id="close-menu" class="text-primary-blue focus:outline-none">
+          <i class="fas fa-times text-3xl"></i>
+        </button>
+      </div>
+      
+      <div class="flex flex-col space-y-6">
+        <a href="#" class="text-primary-blue text-xl font-medium py-2 border-b border-gray-200">Home</a>
+        
+        <div class="mobile-dropdown">
+          <div class="flex justify-between items-center text-primary-blue text-xl font-medium py-2 border-b border-gray-200" id="mobile-services-toggle">
+            <p>Services</p>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="mobile-dropdown-content pl-4 space-y-4 hidden mt-4">
+            <p class="text-gray-500 font-bold">GENERATOR SERVICES</p>
+            <a href="/pages/generator_installation.html" class="block text-primary-blue hover:text-secondary-blue">Generator Installation</a>
+            <a href="/pages/generator_repairs.html" class="block text-primary-blue hover:text-secondary-blue">Generator Repair</a>
+            <a href="/pages/other_generator_services.html" class="block text-primary-blue hover:text-secondary-blue">Other Generator Services</a>
+            
+            <p class="text-gray-500 font-bold mt-6">ADDITIONAL SERVICES</p>
+            <a href="/pages/solar_installations.html" class="block text-primary-blue hover:text-secondary-blue">Solar System Installations</a>
+            <a href="/pages/electrical_services.html" class="block text-primary-blue hover:text-secondary-blue">Electrical Services</a>
+          </div>
+        </div>
+        
+        <a href="/pages/contact.html" class="text-primary-blue text-xl font-medium py-2 border-b border-gray-200">Contact Us</a>
+        
+        <a href="https://wa.me/27848502120" target="_blank" class="btn-whatsapp py-3 px-6 rounded-full text-center">
+          <i class="fab fa-whatsapp mr-2"></i> WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<body class="font-lato bg-gray-50 overflow-x-hidden">
+ <!-- Hero Section Container -->
+ <section id="hero" class="w-full h-screen flex items-center justify-center relative">
+    <!-- Background Image Container -->
+    <div class="hero-bg-container">
+      <img id="hero-background" class="hero-bg" src="/assets/images/electricalHero.png" alt="Hero Background">
+    </div>
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/60 z-10"></div>
+    
+    <!-- Content Container -->
+    <div class="container mx-auto px-4 z-20 max-w-6xl mt-20 md:mt-60">
+      <div class="flex flex-col items-center text-center lg:text-left lg:items-start">
+        <!-- Hero Content -->
+        <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight text-shadow opacity-0">
+            Electrical Services
+        </h1>
+        
+        <p id="hero-description" class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl opacity-0">
+            We cover the whole spectrum from installations, repairs, upgrades to maintenance services.
+        </p>
+        
+        <!-- CTA Button -->
+        <div id="hero-cta" class="opacity-0">
+          <a href="/pages/contact.html" class="btn-shine inline-block bg-accent-green hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            Get Your Free Repair Estimate!
+          </a>
+        </div>
+        
+        <!-- Floating Elements for Visual Interest -->
+        <div class="absolute right-0 bottom-0 opacity-20 pointer-events-none">
+          <div class="floating">
+            <svg width="300" height="300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="40" stroke="white" stroke-width="1" />
+              <circle cx="50" cy="50" r="30" stroke="white" stroke-width="1" />
+              <circle cx="50" cy="50" r="20" stroke="white" stroke-width="1" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Animated Gradient Accent -->
+    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+  </section>
+
+    <section class="relative py-16 px-4 md:px-8 overflow-hidden">
+        <!-- Background shapes -->
+        <div class="absolute top-[-150px] left-[-100px] w-[300px] h-[300px] rounded-full bg-primary-blue opacity-20 z-0"></div>
+        <div class="absolute bottom-[-100px] right-[-50px] w-[200px] h-[200px] rounded-full bg-accent-orange opacity-20 z-0"></div>
+        <div class="absolute top-[20%] right-[10%] w-[250px] h-[250px] bg-secondary-blue opacity-20 z-0 animate-morph"></div>
+        
+        <!-- Section Content -->
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black text-primary-blue text-center mb-4">Our Electrical Services</h2>
+            <p class="text-gray-600 font-light text-lg md:text-xl text-center mb-12 max-w-3xl mx-auto">From installations to maintenance, we offer comprehensive electrical solutions for all your power generation needs.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Installation Card -->
+                <div class="service-card bg-white bg-opacity-70 glass-effect rounded-xl p-8 shadow-lg border border-white border-opacity-20 transition-all duration-300 flex flex-col h-full transform translate-y-12 opacity-0 hover:shadow-xl overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-primary-blue transition-all duration-300 hover-trigger"></div>
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-blue text-white mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="8 18 12 22 16 18"></polyline>
+                            <line x1="12" y1="2" x2="12" y2="22"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary-blue mb-4">Installation Services</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Professional installation of generators, electrical panels, and power systems with expert precision and safety standards.</p>
+                    <div class="flex gap-4 mt-auto">
+                        <a href="tel:+27 84 850 2120" class="flex items-center justify-center gap-2 bg-accent-green text-white font-bold py-2 px-4 rounded transition-all duration-300 hover:bg-green-500 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            Call
+                        </a>
+                        <a href="mailto:sales@dynamicgenerators.co.za" class="flex items-center justify-center gap-2 bg-accent-orange text-white font-bold py-2 px-4 rounded transition-all duration-300 hover:bg-orange-600 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Email
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Repair Card -->
+                <div class="service-card bg-white bg-opacity-70 glass-effect rounded-xl p-8 shadow-lg border border-white border-opacity-20 transition-all duration-300 flex flex-col h-full transform translate-y-12 opacity-0 hover:shadow-xl overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-accent-orange transition-all duration-300 hover-trigger"></div>
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-accent-orange text-white mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary-blue mb-4">Repair Services</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Quick diagnosis and efficient repairs for all electrical systems, minimizing downtime and restoring functionality fast.</p>
+                    <div class="flex gap-4 mt-auto">
+                        <a href="tel:+27 84 850 2120" class="flex items-center justify-center gap-2 bg-accent-green text-white font-bold py-2 px-4 rounded transition-all duration-300 hover:bg-green-500 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            Call
+                        </a>
+                        <a href="mailto:sales@dynamicgenerators.co.za" class="flex items-center justify-center gap-2 bg-accent-orange text-white font-bold py-2 px-4 rounded transition-all duration-300 hover:bg-orange-600 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Email
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Upgrade Card -->
+                <div class="service-card bg-white bg-opacity-70 glass-effect rounded-xl p-8 shadow-lg border border-white border-opacity-20 transition-all duration-300 flex flex-col h-full transform translate-y-12 opacity-0 hover:shadow-xl overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-accent-green transition-all duration-300 hover-trigger"></div>
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-accent-green text-white mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="19 12 12 19 5 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary-blue mb-4">Upgrade Services</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Modernize your electrical systems with cutting-edge technology for improved efficiency, safety, and performance.</p>
+                    <div class="flex gap-4 mt-auto">
+                        <a href="tel:+27 84 850 2120" class="flex items-center justify-center gap-2 bg-accent-green text-white font-bold py-2 px-4 rounded transition-all duration-300 hover:bg-green-500 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            Call
+                        </a>
+                        <a href="mailto:sales@dynamicgenerators.co.za" class="flex items-center justify-center gap-2 bg-accent-orange text-white font-bold py-2 px-4 rounded transition-all duration-300 hover:bg-orange-600 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Email
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Maintenance Card -->
+                <div class="service-card bg-white bg-opacity-70 glass-effect rounded-xl p-8 shadow-lg border border-white border-opacity-20 transition-all duration-300 flex flex-col h-full transform translate-y-12 opacity-0 hover:shadow-xl overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-secondary-blue transition-all duration-300 hover-trigger"></div>
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-secondary-blue text-white mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary-blue mb-4">Maintenance Services</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Regular preventative maintenance to ensure your electrical systems operate at peak performance and extend their operational lifespan.</p>
+                    <div class="flex gap-4 mt-auto">
+                        <a href="tel:+27 84 850 2120" class="flex items-center justify-center gap-2 bg-accent-green text-white font-bold py-2 px-4 rounded transition-all duration-300 hover:bg-green-500 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            Call
+                        </a>
+                        <a href="mailto:sales@dynamicgenerators.co.za" class="flex items-center justify-center gap-2 bg-accent-orange text-white font-bold py-2 px-4 rounded transition-all duration-300 hover:bg-orange-600 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize GSAP ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate service cards
+            gsap.utils.toArray('.service-card').forEach((card, index) => {
+                gsap.to(card, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    delay: 0.2 * index,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top bottom-=100",
+                        toggleActions: "play none none none"
+                    }
+                });
+                
+                // Add hover effect for the top border
+                const hoverTrigger = card.querySelector('.hover-trigger');
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(hoverTrigger, {
+                        height: "4px",
+                        duration: 0.3
+                    });
+                    gsap.to(card, {
+                        y: -10,
+                        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                        duration: 0.3
+                    });
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(hoverTrigger, {
+                        height: "4px",
+                        duration: 0.3
+                    });
+                    gsap.to(card, {
+                        y: 0,
+                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                        duration: 0.3
+                    });
+                });
+            });
+            
+            // Animate the blob shape
+            gsap.to('.animate-morph', {
+                x: "20%",
+                y: "10%",
+                duration: 15,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+        });
+    </script>
+</body>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-8 md:mb-0">
+          <a href="/index.html" class="flex items-center">
+         <img src="/logo_defaultWhite.png" alt="Dynamic Generators" width="400px" height="auto">
+          </a>
+        </div>
+        
+        <div class="flex flex-col mb-8 md:mb-0">
+          <h4 class="font-bold mb-4 text-xl">Quick Links</h4>
+          <div class="flex flex-col space-y-2">
+            <a href="/index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a>
+            <a href="/pages/services.html" class="text-gray-400 hover:text-white transition duration-300">Services</a>
+            <a href="/pages/contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
+          </div>
+        </div>
+        
+        <div class="flex flex-col">
+          <h4 class="font-bold mb-4 text-xl">Connect With Us</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-400">
+          &copy; 2025 Dynamic Generators. All rights reserved.
+        </p>
+        <p class="text-gray-500 mt-2">
+          Designed and developed by: <a href="http://www.claudius-mainja.com" target="_blank" class="text-secondary-blue hover:underline">claudiusMainja</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary-blue text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50 transition-opacity duration-300 opacity-0 invisible">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+// Initialize AOS Animation if it exists
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
+}
+
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenu = document.getElementById('close-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (menuToggle && closeMenu && mobileMenu) {
+  menuToggle.addEventListener('click', function() {
+    mobileMenu.classList.add('active');
+  });
+  
+  closeMenu.addEventListener('click', function() {
+    mobileMenu.classList.remove('active');
+  });
+  
+  // Close mobile menu when clicking on a link
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      mobileMenu.classList.remove('active');
+    });
+  });
+}
+
+// Navbar Scroll Effect
+const navbar = document.getElementById('navbar');
+if (navbar) {
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+}
+
+// Services Dropdown for Desktop - Click instead of Hover
+const servicesToggle = document.getElementById('services-toggle');
+const servicesMenu = document.getElementById('services-menu');
+const servicesDropdown = document.getElementById('services-dropdown');
+
+if (servicesToggle && servicesMenu) {
+  // Handle click toggling
+  servicesToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    servicesMenu.classList.toggle('show');
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!servicesDropdown.contains(e.target)) {
+      servicesMenu.classList.remove('show');
+    }
+  });
+  
+  // For accessibility: handle keyboard navigation
+  servicesToggle.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      servicesMenu.classList.toggle('show');
+    }
+  });
+}
+
+// Mobile Services Dropdown Toggle
+const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+if (mobileServicesToggle) {
+  mobileServicesToggle.addEventListener('click', function() {
+    const dropdownContent = this.nextElementSibling;
+    dropdownContent.classList.toggle('hidden');
+    
+    // Toggle chevron direction
+    const icon = this.querySelector('i');
+    if (icon) {
+      icon.classList.toggle('fa-chevron-down');
+      icon.classList.toggle('fa-chevron-up');
+    }
+  });
+}
+
+// Handle window resize 
+window.addEventListener('resize', function() {
+  if (window.innerWidth >= 1024) {
+    // Reset mobile menu when resizing to desktop
+    if (mobileMenu) {
+      mobileMenu.classList.remove('active');
+    }
+  }
+});
+});
+      // Back to Top Button
+      const backToTopButton = document.getElementById('back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.remove('opacity-0', 'invisible');
+          backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+          backToTopButton.classList.remove('opacity-100', 'visible');
+          backToTopButton.classList.add('opacity-0', 'invisible');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+
+  </script>
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

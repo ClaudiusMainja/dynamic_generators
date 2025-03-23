@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Generators | Professional Generator Services</title>
+  
+  <!-- Lato Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+   
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!--Custom CSS-->
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/src/hero.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#214BA9',
+            secondary: '#4775DB',
+            'accent-green': '#4CAF50',
+            'accent-orange': '#FF9800',
+          },
+          fontFamily: {
+            lato: ['Lato', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  
+</head>
+
+<header>
+    <!-- Navbar -->
+<nav class="navbar fixed w-full z-30 top-0 py-2 glass-effect" id="navbar">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="/index.html">
+        <img src="/logo_fullColor.png" alt="logo" height="auto" width="300px">
+    </a>
+      </div>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="/index.html" class="text-primary-blue hover:text-secondary-blue font-medium transition duration-300">Home</a>
+        
+        <div class="dropdown" id="services-dropdown">
+          <a href="/pages/services.html" class="text-primary-blue hover:text-secondary-blue font-medium transition duration-300 flex items-center" id="services-toggle">
+            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="dropdown-content mt-2" id="services-menu">
+            <div class="p-3 border-b border-gray-200">
+              <h3 class="font-bold text-sm text-gray-500">GENERATOR SERVICES</h3>
+            </div>
+            <a href="/pages/generator_installation.html">Generator Installation</a>
+            <a href="/pages/generator_repairs.html">Generator Repair</a>
+            <a href="/pages/other_generator_services.html">Other Generator Services</a>
+            <div class="p-3 border-b border-gray-200">
+              <h3 class="font-bold text-sm text-gray-500">ADDITIONAL SERVICES</h3>
+            </div>
+            <a href="/pages/solar_installations.html">Solar System Installations</a>
+            <a href="/pages/electrical_services.html">Electrical Services</a>
+          </div>
+        </div>
+        
+        <a href="/pages/contact.html" class="text-primary-blue hover:text-secondary-blue font-medium transition duration-300">Contact Us</a>
+        
+        <a href="https://wa.me/27848502120" target="_blank" class="btn-whatsapp py-2 px-4 rounded-full flex items-center pulse">
+          <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <div class="lg:hidden">
+        <button id="menu-toggle" class="text-primary-blue focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu lg:hidden" id="mobile-menu">
+    <div class="container mx-auto px-4 py-20">
+      <div class="flex justify-end mb-8">
+        <button id="close-menu" class="text-primary-blue focus:outline-none">
+          <i class="fas fa-times text-3xl"></i>
+        </button>
+      </div>
+      
+      <div class="flex flex-col space-y-6">
+        <a href="#" class="text-primary-blue text-xl font-medium py-2 border-b border-gray-200">Home</a>
+        
+        <div class="mobile-dropdown">
+          <div class="flex justify-between items-center text-primary-blue text-xl font-medium py-2 border-b border-gray-200" id="mobile-services-toggle">
+            <p>Services</p>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="mobile-dropdown-content pl-4 space-y-4 hidden mt-4">
+            <p class="text-gray-500 font-bold">GENERATOR SERVICES</p>
+            <a href="/pages/generator_installation.html" class="block text-primary-blue hover:text-secondary-blue">Generator Installation</a>
+            <a href="/pages/generator_repairs.html" class="block text-primary-blue hover:text-secondary-blue">Generator Repair</a>
+            <a href="/pages/other_generator_services.html" class="block text-primary-blue hover:text-secondary-blue">Other Generator Services</a>
+            
+            <p class="text-gray-500 font-bold mt-6">ADDITIONAL SERVICES</p>
+            <a href="/pages/solar_installations.html" class="block text-primary-blue hover:text-secondary-blue">Solar System Installations</a>
+            <a href="/pages/electrical_services.html" class="block text-primary-blue hover:text-secondary-blue">Electrical Services</a>
+          </div>
+        </div>
+        
+        <a href="/pages/contact.html" class="text-primary-blue text-xl font-medium py-2 border-b border-gray-200">Contact Us</a>
+        
+        <a href="https://wa.me/27848502120" target="_blank" class="btn-whatsapp py-3 px-6 rounded-full text-center">
+          <i class="fab fa-whatsapp mr-2"></i> WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<body class="font-lato bg-gray-50 overflow-x-hidden">
+ <!-- Hero Section Container -->
+ <section id="hero" class="w-full h-screen flex items-center justify-center relative">
+    <!-- Background Image Container -->
+    <div class="hero-bg-container">
+      <img id="hero-background" class="hero-bg" src="/assets/images/solarInstallation.png" alt="Hero Background">
+    </div>
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/60 z-10"></div>
+    
+    <!-- Content Container -->
+    <div class="container mx-auto px-4 z-20 max-w-6xl mt-20 md:mt-60">
+      <div class="flex flex-col items-center text-center lg:text-left lg:items-start">
+        <!-- Hero Content -->
+        <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight text-shadow opacity-0">
+           Solar System Installations.
+        </h1>
+        
+        <p id="hero-description" class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl opacity-0">
+            We install, repair and upgrade solar power systems for both domestic and commercial applications. Contact us to find out more on this service.
+        </p>
+        
+        <!-- CTA Button -->
+        <div id="hero-cta" class="opacity-0">
+          <a href="/pages/contact.html" class="btn-shine inline-block bg-accent-green hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            Get Your Free Repair Estimate!
+          </a>
+        </div>
+        
+        <!-- Floating Elements for Visual Interest -->
+        <div class="absolute right-0 bottom-0 opacity-20 pointer-events-none">
+          <div class="floating">
+            <svg width="300" height="300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="40" stroke="white" stroke-width="1" />
+              <circle cx="50" cy="50" r="30" stroke="white" stroke-width="1" />
+              <circle cx="50" cy="50" r="20" stroke="white" stroke-width="1" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Animated Gradient Accent -->
+    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+  </section>
+
+     <!-- Services Section -->
+  <section id="services" class="py-20 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute top-0 left-0 w-64 h-64 bg-secondary opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary opacity-5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+    
+    <div class="container mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center mb-16 max-w-3xl mx-auto opacity-0 transform translate-y-6 transition-all duration-700 ease-out" id="section-header">
+        <h2 class="text-4xl md:text-5xl font-black text-primary mb-4">Our Solar Services</h2>
+        <div class="w-24 h-1 bg-accent-orange mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600 font-light">
+          We provide comprehensive solar solutions for both residential and commercial properties. 
+          Our expert team ensures quality installation, maintenance, and upgrades for maximum energy efficiency.
+        </p>
+      </div>
+      
+      <!-- Services Showcase -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        
+        <!-- Service Card 1: Installation -->
+        <div class="bg-white bg-opacity-25 backdrop-blur-md border border-white border-opacity-20 shadow-lg rounded-lg p-8 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl opacity-0" id="card-1">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300 transform hover:scale-110 hover:rotate-3">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-primary text-center mb-4">Solar Installation</h3>
+          <p class="text-gray-600 text-center mb-6">Professional installation of high-efficiency solar panel systems tailored to your property's specific needs.</p>
+          
+          <div class="rounded-lg overflow-hidden mb-6">
+            <img src="/assets/images/solarInstallation.png" alt="Solar Panel Installation" class="w-full h-auto object-cover transition-transform duration-500 transform hover:scale-105" />
+          </div>
+          
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <h4 class="font-bold text-secondary mb-2">Our Process:</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-accent-green rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">1</span>
+                <span>On-site assessment & custom design</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-accent-green rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">2</span>
+                <span>Professional installation by certified technicians</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-accent-green rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">3</span>
+                <span>System testing & quality assurance</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-accent-green rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">4</span>
+                <span>Final walkthrough & operation training</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 text-center">
+            <a href="tel:+27 84 850 2120
+            " class="inline-block bg-primary hover:bg-secondary text-white py-2 px-6 rounded-full transition-all duration-300 font-bold">
+              Call for Consultation
+            </a>
+          </div>
+        </div>
+        
+        <!-- Service Card 2: Maintenance & Repair -->
+        <div class="bg-white bg-opacity-25 backdrop-blur-md border border-white border-opacity-20 shadow-lg rounded-lg p-8 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl opacity-0" id="card-2">
+          <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300 transform hover:scale-110 hover:rotate-3">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.168 1.168a4 4 0 01-2.384.737 4 4 0 01-2.309-.71L7.8 10.232a3 3 0 00-.732-2.06zm2.757 6.192A5 5 0 0110 15a5 5 0 01-3.536-1.465A5 5 0 015 10a5 5 0 011.464-3.536L7.8 7.8a3 3 0 00-1.077 1.718A3 3 0 007.959 12H8v-1a1 1 0 112 0v1h.041a3 3 0 001.236-2.482A3 3 0 0010.8 7.8l1.336-1.336A5 5 0 0115 10a5 5 0 01-1.464 3.535 5 5 0 01-1.779 1.829z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-secondary text-center mb-4">Maintenance & Repair</h3>
+          <p class="text-gray-600 text-center mb-6">Expert maintenance and prompt repair services to keep your solar system operating at peak efficiency.</p>
+          
+          <div class="rounded-lg overflow-hidden mb-6">
+            <img src="/assets/images/solarRepairs.png" alt="Solar Panel Maintenance" class="w-full h-auto object-cover transition-transform duration-500 transform hover:scale-105" />
+          </div>
+          
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <h4 class="font-bold text-secondary mb-2">Our Services Include:</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-accent-orange rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </span>
+                <span>Regular system inspections & cleaning</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-accent-orange rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </span>
+                <span>Performance monitoring & diagnostics</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-accent-orange rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </span>
+                <span>Inverter troubleshooting & repair</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-accent-orange rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </span>
+                <span>Panel replacement & wiring repairs</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 text-center">
+            <a href="mailto:sales@dynamicgenerators.co.za" class="inline-block bg-secondary hover:bg-primary text-white py-2 px-6 rounded-full transition-all duration-300 font-bold">
+              Email Support Team
+            </a>
+          </div>
+        </div>
+        
+        <!-- Service Card 3: Upgrades & Enhancements -->
+        <div class="bg-white bg-opacity-25 backdrop-blur-md border border-white border-opacity-20 shadow-lg rounded-lg p-8 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl opacity-0" id="card-3">
+          <div class="w-16 h-16 bg-accent-green rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300 transform hover:scale-110 hover:rotate-3">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-accent-green text-center mb-4">System Upgrades</h3>
+          <p class="text-gray-600 text-center mb-6">Enhance your existing solar system with the latest technology to improve efficiency and increase energy production.</p>
+          
+          <div class="rounded-lg overflow-hidden mb-6">
+            <img src="/assets/images/solarUpgrade.png" alt="Solar System Upgrade" class="w-full h-auto object-cover transition-transform duration-500 transform hover:scale-105" />
+          </div>
+          
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <h4 class="font-bold text-secondary mb-2">Upgrade Options:</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-primary rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
+                  </svg>
+                </span>
+                <span>Panel capacity expansion</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-primary rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
+                  </svg>
+                </span>
+                <span>Battery storage integration</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-primary rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
+                  </svg>
+                </span>
+                <span>Smart monitoring system installation</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-5 h-5 bg-primary rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2">
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
+                  </svg>
+                </span>
+                <span>Inverter upgrades for better efficiency</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 text-center">
+            <a href="tel:+27 84 850 2120
+            " class="inline-block bg-accent-green hover:bg-secondary text-white py-2 px-6 rounded-full transition-all duration-300 font-bold">
+              Schedule Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Solar System Types -->
+      <div class="mt-20 opacity-0 transform translate-y-6 transition-all duration-700 ease-out" id="solutions-section">
+        <h3 class="text-3xl font-bold text-primary text-center mb-12">Solar Solutions For Every Need</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Residential -->
+          <div class="relative overflow-hidden rounded-lg bg-white bg-opacity-25 backdrop-blur-md border border-white border-opacity-20 shadow-lg group">
+            <img src="/assets/images/residentialSolar.png" alt="Residential Solar Installation" class="w-full h-64 object-cover object-center transition-all duration-500 group-hover:scale-105"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <h4 class="text-2xl font-bold text-white mb-2">Residential Solar</h4>
+              <p class="text-white text-sm mb-4">Custom solar solutions for homes of all sizes. Reduce your energy bills and increase your property value.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-white/20 rounded-full text-white text-xs">Rooftop Installations</span>
+                <span class="px-3 py-1 bg-white/20 rounded-full text-white text-xs">Ground Mounts</span>
+                <span class="px-3 py-1 bg-white/20 rounded-full text-white text-xs">Battery Backup</span>
+              </div>
+            </div>
+          </div>
+   
+          <!-- Commercial -->
+          <div class="relative overflow-hidden rounded-lg bg-white bg-opacity-25 backdrop-blur-md border border-white border-opacity-20 shadow-lg group">
+            <img src="/assets/images/commercialSolar.png" alt="Commercial Solar Installation" class="w-full h-64 object-cover object-center transition-all duration-500 group-hover:scale-105"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary to-transparent opacity-70"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <h4 class="text-2xl font-bold text-white mb-2">Commercial Solar</h4>
+              <p class="text-white text-sm mb-4">Comprehensive solar solutions for businesses and industrial facilities. Maximize ROI and showcase your commitment to sustainability.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-white/20 rounded-full text-white text-xs">Large Scale Systems</span>
+                <span class="px-3 py-1 bg-white/20 rounded-full text-white text-xs">Carport Installations</span>
+                <span class="px-3 py-1 bg-white/20 rounded-full text-white text-xs">Energy Management</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+</section>
+</body>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-8 md:mb-0">
+          <a href="/index.html" class="flex items-center">
+         <img src="/logo_defaultWhite.png" alt="Dynamic Generators" width="400px" height="auto">
+          </a>
+        </div>
+        
+        <div class="flex flex-col mb-8 md:mb-0">
+          <h4 class="font-bold mb-4 text-xl">Quick Links</h4>
+          <div class="flex flex-col space-y-2">
+            <a href="/index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a>
+            <a href="/pages/services.html" class="text-gray-400 hover:text-white transition duration-300">Services</a>
+            <a href="/pages/contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
+          </div>
+        </div>
+        
+        <div class="flex flex-col">
+          <h4 class="font-bold mb-4 text-xl">Connect With Us</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="bg-primary-blue text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary-blue transition duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-400">
+          &copy; 2025 Dynamic Generators. All rights reserved.
+        </p>
+        <p class="text-gray-500 mt-2">
+          Designed and developed by: <a href="http://www.claudius-mainja.com" target="_blank" class="text-secondary-blue hover:underline">claudiusMainja</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary-blue text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50 transition-opacity duration-300 opacity-0 invisible">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+// Initialize AOS Animation if it exists
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
+}
+
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenu = document.getElementById('close-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (menuToggle && closeMenu && mobileMenu) {
+  menuToggle.addEventListener('click', function() {
+    mobileMenu.classList.add('active');
+  });
+  
+  closeMenu.addEventListener('click', function() {
+    mobileMenu.classList.remove('active');
+  });
+  
+  // Close mobile menu when clicking on a link
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      mobileMenu.classList.remove('active');
+    });
+  });
+}
+
+// Navbar Scroll Effect
+const navbar = document.getElementById('navbar');
+if (navbar) {
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+}
+
+// Services Dropdown for Desktop - Click instead of Hover
+const servicesToggle = document.getElementById('services-toggle');
+const servicesMenu = document.getElementById('services-menu');
+const servicesDropdown = document.getElementById('services-dropdown');
+
+if (servicesToggle && servicesMenu) {
+  // Handle click toggling
+  servicesToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    servicesMenu.classList.toggle('show');
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!servicesDropdown.contains(e.target)) {
+      servicesMenu.classList.remove('show');
+    }
+  });
+  
+  // For accessibility: handle keyboard navigation
+  servicesToggle.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      servicesMenu.classList.toggle('show');
+    }
+  });
+}
+
+// Mobile Services Dropdown Toggle
+const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+if (mobileServicesToggle) {
+  mobileServicesToggle.addEventListener('click', function() {
+    const dropdownContent = this.nextElementSibling;
+    dropdownContent.classList.toggle('hidden');
+    
+    // Toggle chevron direction
+    const icon = this.querySelector('i');
+    if (icon) {
+      icon.classList.toggle('fa-chevron-down');
+      icon.classList.toggle('fa-chevron-up');
+    }
+  });
+}
+
+// Handle window resize 
+window.addEventListener('resize', function() {
+  if (window.innerWidth >= 1024) {
+    // Reset mobile menu when resizing to desktop
+    if (mobileMenu) {
+      mobileMenu.classList.remove('active');
+    }
+  }
+});
+});
+      // Back to Top Button
+      const backToTopButton = document.getElementById('back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.remove('opacity-0', 'invisible');
+          backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+          backToTopButton.classList.remove('opacity-100', 'visible');
+          backToTopButton.classList.add('opacity-0', 'invisible');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // GSAP Animations
+      gsap.to("#section-header", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+      gsap.to("#card-1", {
+        opacity: 1,
+        duration: 0.8,
+        delay: 0.2,
+        ease: "power3.out"
+      });
+      gsap.to("#card-2", {
+        opacity: 1,
+        duration: 0.8,
+        delay: 0.4,
+        ease: "power3.out"
+      });
+      gsap.to("#card-3", {
+        opacity: 1,
+        duration: 0.8,
+        delay: 0.6,
+        ease: "power3.out"
+      });
+      gsap.to("#solutions-section", {
+        scrollTrigger: {
+          trigger: "#solutions-section",
+          start: "top 80%"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+      gsap.to("#gallery-section", {
+        scrollTrigger: {
+          trigger: "#gallery-section",
+          start: "top 80%"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+    
+      // Create hover animation for service cards
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          gsap.to(this, {
+            y: -10,
+            boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          gsap.to(this, {
+            y: 0,
+            boxShadow: "0 5px 15px rgba(0,0,0,0.05)",
+            duration: 0.3,
+            ease: "power2.in"
+          });
+        });
+      });
+    
+      // Animate gallery images when scrolled into view
+      const galleryImages = document.querySelectorAll('.gallery-image');
+      galleryImages.forEach((img, index) => {
+        gsap.from(img, {
+          scrollTrigger: {
+            trigger: img,
+            start: "top 85%"
+          },
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.6,
+          delay: index * 0.15,
+          ease: "back.out(1.2)"
+        });
+      });
+    
+      // Form submission handling
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Show loading state
+          const submitButton = this.querySelector('button[type="submit"]');
+          const originalText = submitButton.textContent;
+          submitButton.textContent = "Sending...";
+          
+          // Simulate form submission (replace with actual AJAX call)
+          setTimeout(() => {
+            submitButton.textContent = "Message Sent!";
+            this.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+              submitButton.textContent = originalText;
+            }, 3000);
+          }, 1500);
+        });
+      }
+    });
+    </script>
+  <script src="/scripts/main.js"></script>
+</body>
+</html>
